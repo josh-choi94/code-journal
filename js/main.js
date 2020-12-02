@@ -8,12 +8,13 @@ userImgInput.addEventListener("input", function (event) {
 
 
 userForm.addEventListener('submit', function (event){
+  event.preventDefault();
   data.profile.avatarUrl = userForm.elements.avatarUrl.value;
   data.profile.username = userForm.elements.username.value;
   data.profile.fullName = userForm.elements.fullName.value;
   data.profile.location = userForm.elements.location.value;
   data.profile.bio = userForm.elements.bio.value;
- 
+  userForm.reset();
 })
 
 console.log(data.profile);
