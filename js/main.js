@@ -18,4 +18,8 @@ userForm.addEventListener('submit', function (event){
   userImg.setAttribute("src", 'images/placeholder-image-square.jpg');
 })
 
-console.log(data.profile);
+window.addEventListener('beforeunload', function(event){
+
+var profileJSON = JSON.stringify(data);
+localStorage.setItem('profile', profileJSON);
+}); 
