@@ -1,18 +1,18 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Architects Daughter', cursive;
 }
 
 header {
   width: 100%;
   background-color: #539DC2;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Architects Daughter', cursive;  
 }
 
-h2 {
+h1 {
   color: white;
   margin: 0 auto;
   padding: 20px 0;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 input {
@@ -24,6 +24,10 @@ textarea,
 input {
   width: 100%;
   border: 1px solid black;
+}
+
+textarea{
+  margin-top: 10px;
 }
 
 .column-half{
