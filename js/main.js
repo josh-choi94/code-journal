@@ -15,6 +15,7 @@ userForm.addEventListener('submit', function (event){
   data.profile.location = userForm.elements.location.value;
   data.profile.bio = userForm.elements.bio.value;
   userForm.reset();
+  userImg.setAttribute("src", 'images/placeholder-image-square.jpg');
 })
 
 console.log(data.profile);
