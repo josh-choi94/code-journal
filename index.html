@@ -1,25 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Journal</title>
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-    integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <header>
-  </header>
-  <main>
-    <div data-view="edit-profile"></div>
-  </main>
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Journal</title>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div data-view="edit-profile">
+          <header>
+            <div class="row">
+              <div class="column-full">
+                <h1>Code Journal</h1>
+              </div>
+            </div>
+          </header>
+
+          <div class="row">
+            <div class="column-full">
+              <h2 class="top-heading">Edit Profile</h2>
+            </div>
+          </div>
+          <form id="contact-form">
+            <div class="row">
+              <div class="column-half">
+                <img
+                  class="avatarImg"
+                  src="images/placeholder-image-square.jpg"
+                  id="avatarImg"
+                  alt="placeholder image"
+                />
+              </div>
+              <div class="column-half">
+                <div class="col-content">
+                  <label for="avatarUrl">Avatar URL</label>
+                  <input type="url" name="avatarUrl" required />
+                </div>
+                <div class="col-content">
+                  <label for="username">Username</label>
+                  <input type="text" name="username" required />
+                </div>
+                <div class="col-content">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" name="fullName" required />
+                </div>
+                <div class="col-content">
+                  <label for="location">Location</label>
+                  <input type="text" name="location" required />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="lower-col-wrapper">
+                <div class="column-full">
+                  <label for="bio">Bio</label>
+                  <textarea name="bio" rows="5" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-full">
+                <div class="button-wrapper">
+                  <button type="submit" class="save-button" id="save-button">
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
