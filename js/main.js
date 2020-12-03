@@ -40,4 +40,19 @@ function profileCreate(data){
   var columnBio = document.createElement('div');
   var bioPara = document.createElement('p');
 
+  containerDiv.className = 'container';
+  firstRow.className = 'row';
+  fullColumn.className = 'column-full';
+  fullNameH2.textContent = 'Full Name';
+  secondRow.className = 'row';
+  halfColumn.className = 'column-half';
+  imageHolder.setAttribute('src');
+  halfColumn2.className = 'column-half';
+  columnUserName.className = 'col-content';
+  userPara.textContent = 'User Name';
+  columnLocation.className = 'col-content';
+  locationPara.textContent = 'location';
+  columnBio.className = 'col-content';
+  bioPara.textContent = 'bio';
+
 }
