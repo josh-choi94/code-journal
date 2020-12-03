@@ -23,3 +23,21 @@ window.addEventListener('beforeunload', function(event){
 var profileJSON = JSON.stringify(data);
 localStorage.setItem('profile', profileJSON);
 }); 
+
+function profileCreate(data){
+  var containerDiv = document.createElement('div');
+  var firstRow = document.createElement('div');
+  var fullColumn = document.createElement('div');
+  var fullNameH2 = document.createElement('h2');
+  var secondRow = document.createElement('div');
+  var halfColumn = document.createElement('div');
+  var imageHolder = document.createElement('img');
+  var halfColumn2 = document.createElement('div');
+  var columnUserName= document.createElement('div');
+  var userPara = document.createElement('p');
+  var columnLocation = document.createElement('div');
+  var locationPara = document.createElement('p');
+  var columnBio = document.createElement('div');
+  var bioPara = document.createElement('p');
+
+}
