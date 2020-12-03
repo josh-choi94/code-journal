@@ -43,16 +43,28 @@ function profileCreate(data){
   containerDiv.className = 'container';
   firstRow.className = 'row';
   fullColumn.className = 'column-full';
-  fullNameH2.textContent = 'Full Name';
+  fullNameH2.textContent = data.profile.fullName;
   secondRow.className = 'row';
   halfColumn.className = 'column-half';
-  imageHolder.setAttribute('src');
+  imageHolder.setAttribute('src', data.profile.avatarUrl);
   halfColumn2.className = 'column-half';
   columnUserName.className = 'col-content';
-  userPara.textContent = 'User Name';
+  userPara.textContent = data.profile.username;
   columnLocation.className = 'col-content';
-  locationPara.textContent = 'location';
+  locationPara.textContent = data.profile.location;
   columnBio.className = 'col-content';
-  bioPara.textContent = 'bio';
+  bioPara.textContent = data.profile.bio;
+
+  containerDiv.appendChild(firstRow);
+  firstRow.appendChild(fullColumn);
+  fullColumn.appendChild(fullNameH2);
+  secondRow.appendChild(halfColumn);
+  halfColumn.appendChild(imageHolder);
+  halfColumn2.appendChild(columnUserName);
+  columnUserName.appendChild(userPara);
+  columnLocation.appendChild(locationPara);
+  columnBio.appendChild(bioPara);
+
+  return containerDiv;
 
 }
