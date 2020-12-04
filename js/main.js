@@ -41,7 +41,7 @@ function profileCreate(data) {
   var bioPara = document.createElement("p");
 
   dataDiv.className = "edit-profile";
-  dataDiv.setAttribute("data-view");
+  dataDiv.setAttribute("data-view", 'profile');
   containerDiv.className = "container";
   firstRow.className = "row";
   fullColumn.className = "column-full";
@@ -84,6 +84,10 @@ function viewSwap(viewData) {
   var divDataViewProfile = document.querySelector('div[data-view="profile"]');
 
   if(viewData === 'profile') {
+    var profileData = JSON.parse(localStorage.getItem('profile'));
+    // console.log(profileData);
     divDataViewProfile.innerHTML = '';
+    console.log(profileCreate(profileData));
+    divDataViewProfile.append(profileCreate(profileData));
   }
 }
