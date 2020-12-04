@@ -1,6 +1,7 @@
 var userImgInput = document.querySelector("input[name='avatarUrl']");
 var userImg = document.querySelector("#avatarImg");
 var userForm = document.querySelector("#contact-form");
+var divDataView = document.querySelectorAll("div[data-view]");
 
 userImgInput.addEventListener("input", function (event) {
   userImg.setAttribute("src", event.target.value);
@@ -23,6 +24,7 @@ window.addEventListener("beforeunload", function (event) {
 });
 
 function profileCreate(data) {
+  var dataDiv = document.createElement("div");
   var containerDiv = document.createElement("div");
   var firstRow = document.createElement("div");
   var fullColumn = document.createElement("div");
@@ -38,6 +40,8 @@ function profileCreate(data) {
   var columnBio = document.createElement("div");
   var bioPara = document.createElement("p");
 
+  dataDiv.className = "edit-profile";
+  dataDiv.setAttribute("data-view");
   containerDiv.className = "container";
   firstRow.className = "row";
   fullColumn.className = "column-full";
@@ -53,6 +57,7 @@ function profileCreate(data) {
   columnBio.className = "col-content";
   bioPara.textContent = data.profile.bio;
 
+  dataDiv.appendChild(containerDiv);
   containerDiv.appendChild(firstRow);
   firstRow.appendChild(fullColumn);
   fullColumn.appendChild(fullNameH2);
@@ -63,26 +68,17 @@ function profileCreate(data) {
   columnLocation.appendChild(locationPara);
   columnBio.appendChild(bioPara);
 
-  return containerDiv;
+  return dataDiv;
 }
 
 function viewSwap(viewData) {
-  var divDataView = document.querySelectorAll("div[data-view]");
-
-  if (viewData === "profile") {
-    divDataView[0].className = "view hidden";
-    divDataView[1].className = "view";
-    data.view = "profile";
-    divDataView[1].appendChild(profileCreate(data));
-  } else if (viewData === "edit-profile") {
-    divDataView[0].className === "view";
-    divDataView[1].className === "view hidden";
-    data.view = "edit-profile";
-    userForm.avatarUrl.value = data.profile.avatarUrl;
-    userForm.username.value = data.profile.username;
-    userForm.fullName.value = data.profile.fullName;
-    userForm.location.value = data.profile.location;
-    userForm.bio.value = data.profile.bio;
-    img.setAttribute("src", data.profile.avatarUrl);
+  for (var i = 0; i < divDataView.length; i++) {
+    var divCurrent = divDataView[i];
+    if (viewData === divCurrent.getAttribute("data-view")) {
+      divCurrent.className = "active";
+    } else if (viewData !== divCurrent.getAttribute("data-view")) {
+      divCurrent.className = "hidden";
+      data.view = viewData;
+    }
   }
 }
