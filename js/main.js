@@ -104,6 +104,12 @@ function viewSwap(view, profileData) {
     divDataViewProfile.innerHTML = '';
     divDataViewProfile.append(profileCreate(profileData));
   }
-
-
 }
+
+document.addEventListener('DOMContentLoaded', function(event){
+  if(data.profile.username === ''){
+    viewSwap('edit-profile');
+  } else if (data.profile.username) {
+    viewSwap(data.view);
+  }
+})
