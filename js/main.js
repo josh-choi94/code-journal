@@ -14,19 +14,16 @@ userForm.addEventListener("submit", function (event) {
   data.profile.fullName = userForm.elements.fullName.value;
   data.profile.location = userForm.elements.location.value;
   data.profile.bio = userForm.elements.bio.value;
-  
-  userForm.reset();
-  
-  userImg.setAttribute("src", "images/placeholder-image-square.jpg");
-  viewSwap('profile', data);
 
+  userForm.reset();
+
+  userImg.setAttribute("src", "images/placeholder-image-square.jpg");
+  viewSwap("profile", data);
 });
 
 window.addEventListener("beforeunload", function (event) {
   var profileJSON = JSON.stringify(data);
   localStorage.setItem("profile", profileJSON);
-
-  
 });
 
 function profileCreate(data) {
@@ -47,7 +44,7 @@ function profileCreate(data) {
   var bioPara = document.createElement("p");
 
   dataDiv.className = "profile";
-  dataDiv.setAttribute("data-view", 'profile');
+  dataDiv.setAttribute("data-view", "profile");
   containerDiv.className = "container";
   firstRow.className = "row";
   fullColumn.className = "column-full";
@@ -62,25 +59,21 @@ function profileCreate(data) {
   locationPara.textContent = data.profile.location;
   columnBio.className = "col-content";
   bioPara.textContent = data.profile.bio;
-
   dataDiv.appendChild(containerDiv);
   containerDiv.appendChild(firstRow);
   firstRow.appendChild(fullColumn);
   fullColumn.appendChild(fullNameH2);
- containerDiv.appendChild(secondRow);
+  containerDiv.appendChild(secondRow);
   secondRow.appendChild(halfColumn);
   halfColumn.appendChild(imageHolder);
-
   secondRow.appendChild(halfColumn2);
-
   halfColumn2.appendChild(columnUserName);
   columnUserName.appendChild(userPara);
   halfColumn2.appendChild(columnLocation);
   columnLocation.appendChild(locationPara);
   halfColumn2.appendChild(columnBio);
-  
-  columnBio.appendChild(bioPara);
 
+  columnBio.appendChild(bioPara);
 
   return dataDiv;
 }
@@ -95,21 +88,19 @@ function viewSwap(view, profileData) {
       data.view = view;
     }
   }
-  
+
   var divDataViewProfile = document.querySelector('div[data-view="profile"]');
 
-  if(view === 'profile') {
-    
-    // console.log(profileData);
-    divDataViewProfile.innerHTML = '';
+  if (view === "profile") {
+    divDataViewProfile.innerHTML = "";
     divDataViewProfile.append(profileCreate(profileData));
   }
 }
 
-document.addEventListener('DOMContentLoaded', function(event){
-  if(data.profile.username === ''){
-    viewSwap('edit-profile');
+document.addEventListener("DOMContentLoaded", function (event) {
+  if (data.profile.username === "") {
+    viewSwap("edit-profile");
   } else if (data.profile.username) {
     viewSwap(data.view);
   }
-})
+});
