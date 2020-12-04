@@ -14,13 +14,19 @@ userForm.addEventListener("submit", function (event) {
   data.profile.fullName = userForm.elements.fullName.value;
   data.profile.location = userForm.elements.location.value;
   data.profile.bio = userForm.elements.bio.value;
+  
   userForm.reset();
+  
   userImg.setAttribute("src", "images/placeholder-image-square.jpg");
+  viewSwap('profile', data);
+
 });
 
 window.addEventListener("beforeunload", function (event) {
   var profileJSON = JSON.stringify(data);
   localStorage.setItem("profile", profileJSON);
+
+  
 });
 
 function profileCreate(data) {
@@ -40,7 +46,7 @@ function profileCreate(data) {
   var columnBio = document.createElement("div");
   var bioPara = document.createElement("p");
 
-  dataDiv.className = "edit-profile";
+  dataDiv.className = "profile";
   dataDiv.setAttribute("data-view", 'profile');
   containerDiv.className = "container";
   firstRow.className = "row";
@@ -61,33 +67,43 @@ function profileCreate(data) {
   containerDiv.appendChild(firstRow);
   firstRow.appendChild(fullColumn);
   fullColumn.appendChild(fullNameH2);
+ containerDiv.appendChild(secondRow);
   secondRow.appendChild(halfColumn);
   halfColumn.appendChild(imageHolder);
+
+  secondRow.appendChild(halfColumn2);
+
   halfColumn2.appendChild(columnUserName);
   columnUserName.appendChild(userPara);
+  halfColumn2.appendChild(columnLocation);
   columnLocation.appendChild(locationPara);
+  halfColumn2.appendChild(columnBio);
+  
   columnBio.appendChild(bioPara);
+
 
   return dataDiv;
 }
 
-function viewSwap(viewData) {
+function viewSwap(view, profileData) {
   for (var i = 0; i < divDataView.length; i++) {
     var divCurrent = divDataView[i];
-    if (viewData === divCurrent.getAttribute("data-view")) {
+    if (view === divCurrent.getAttribute("data-view")) {
       divCurrent.className = "active";
-    } else if (viewData !== divCurrent.getAttribute("data-view")) {
+    } else if (view !== divCurrent.getAttribute("data-view")) {
       divCurrent.className = "hidden";
-      data.view = viewData;
+      data.view = view;
     }
   }
+  
   var divDataViewProfile = document.querySelector('div[data-view="profile"]');
 
-  if(viewData === 'profile') {
-    var profileData = JSON.parse(localStorage.getItem('profile'));
+  if(view === 'profile') {
+    
     // console.log(profileData);
     divDataViewProfile.innerHTML = '';
-    console.log(profileCreate(profileData));
     divDataViewProfile.append(profileCreate(profileData));
   }
+
+
 }
