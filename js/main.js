@@ -81,4 +81,9 @@ function viewSwap(viewData) {
       data.view = viewData;
     }
   }
+  var divDataViewProfile = document.querySelector('div[data-view="profile"]');
+
+  if(viewData === 'profile') {
+    divDataViewProfile.innerHTML = '';
+  }
 }
